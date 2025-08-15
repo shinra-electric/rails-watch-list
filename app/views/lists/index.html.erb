@@ -1,8 +1,13 @@
-<div class="container">
-    <h1>Film Playlists</h1>
-    <ul>
+ <%= render 'lists/banner' %>
+
+<div class="container mt-3">
+  <div class="cards">
     <% @lists.each do |list| %>
-        <li><%= link_to list.name, list_path(list) %></li>
+      <%= link_to list_path(list) do  %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://image.pollinations.ai/prompt/<%= list.name %>);">
+          <%= list.name %>
+        </div>
+      <% end %>
     <% end %>
-    </ul>
+  </div>
 </div>
